@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
-                  xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://szeleromuvek.awebprogjo.nhely.hu/server/"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://szeleromuvek.awebprogjo.nhely.hu/server/">
+                  xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/">
     <wsdl:types>
-        <xsd:schema targetNamespace="http://szeleromuvek.awebprogjo.nhely.hu/server/">
+        <xsd:schema targetNamespace="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/">
             <xsd:complexType name="Users">
                 <xsd:all>
                     <xsd:element name="errorcode" type="xsd:int" minOccurs="0" maxOccurs="1"/>
@@ -110,7 +110,7 @@
                           transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="getusers">
             <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
-                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=getusers" style="rpc"/>
+                                soapAction="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/server.php?method=getusers" style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
                                encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -122,7 +122,7 @@
         </wsdl:operation>
         <wsdl:operation name="getlocations">
             <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
-                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=getlocations"
+                                soapAction="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/server.php?method=getlocations"
                                 style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
@@ -135,7 +135,7 @@
         </wsdl:operation>
         <wsdl:operation name="getcounties">
             <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
-                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=getcounties" style="rpc"/>
+                                soapAction="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/server.php?method=getcounties" style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
                                encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -147,7 +147,7 @@
         </wsdl:operation>
         <wsdl:operation name="gettowers">
             <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
-                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=gettowers" style="rpc"/>
+                                soapAction="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/server.php?method=gettowers" style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
                                encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -161,7 +161,7 @@
     <wsdl:service name="Tables">
         <wsdl:documentation/>
         <wsdl:port name="TablesPort" binding="tns:TablesBinding">
-            <soap-env:address location="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php"/>
+            <soap-env:address location="http://adamvarhegyi.albertcsabai.awebprogjo.nhely.hu/server/server.php"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

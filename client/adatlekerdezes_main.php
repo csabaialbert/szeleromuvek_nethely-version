@@ -1,13 +1,13 @@
 <?php
 //Globális változók megadása és az adatbázisból kiolvasó függvények meghívása.
 try{
-$client = new SoapClient(SERVER_ROOT . 'server/tables.wsdl');
+$client = new SoapClient(SITE_ROOT . 'server/tables.wsdl');
 $locations = $client->getlocations();
 $counties = $client->getcounties();
 $towers = $client->gettowers();
 $len = count($counties->counties);
 }
-catch(SoapFault $e ){echo $e;}
+catch(SoapFault $e ){echo $e; echo SERVER_ROOT;}
 ?>
 
 

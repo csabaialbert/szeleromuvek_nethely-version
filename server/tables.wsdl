@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://szeleromuvek.awebprogjo.nhely.hu/server/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://szeleromuvek.awebprogjo.nhely.hu/server/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://szeleromuvek.awebprogjo.nhely.hu/server/">
+            <xsd:complexType name="Users">
+                <xsd:all>
+                    <xsd:element name="errorcode" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="msg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="users" type="tns:UserArray" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="User">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="csaladi_nev" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="utonev" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="bejelentkezes" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="jogosultsag" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Locations">
+                <xsd:all>
+                    <xsd:element name="errorcode" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="msg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="locations" type="tns:LocationArray" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Location">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="nev" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="megyeid" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Counties">
+                <xsd:all>
+                    <xsd:element name="errorcode" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="msg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="counties" type="tns:CountyArray" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="County">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="nev" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="regio" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Towers">
+                <xsd:all>
+                    <xsd:element name="errorcode" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="msg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="towers" type="tns:TowerArray" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Tower">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="darab" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="teljesitmeny" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="kezdev" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="helyszinid" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                </xsd:all>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="getusersRequest"/>
+    <wsdl:message name="getusersResponse">
+        <wsdl:part name="getusersReturn" type="tns:Users"/>
+    </wsdl:message>
+    <wsdl:message name="getlocationsRequest"/>
+    <wsdl:message name="getlocationsResponse">
+        <wsdl:part name="getlocationsReturn" type="tns:Locations"/>
+    </wsdl:message>
+    <wsdl:message name="getcountiesRequest"/>
+    <wsdl:message name="getcountiesResponse">
+        <wsdl:part name="getcountiesReturn" type="tns:Counties"/>
+    </wsdl:message>
+    <wsdl:message name="gettowersRequest"/>
+    <wsdl:message name="gettowersResponse">
+        <wsdl:part name="gettowersReturn" type="tns:Towers"/>
+    </wsdl:message>
+    <wsdl:portType name="TablesPortType">
+        <wsdl:operation name="getusers">
+            <wsdl:documentation/>
+            <wsdl:input message="tns:getusersRequest"/>
+            <wsdl:output message="tns:getusersResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getlocations">
+            <wsdl:documentation/>
+            <wsdl:input message="tns:getlocationsRequest"/>
+            <wsdl:output message="tns:getlocationsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getcounties">
+            <wsdl:documentation/>
+            <wsdl:input message="tns:getcountiesRequest"/>
+            <wsdl:output message="tns:getcountiesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="gettowers">
+            <wsdl:documentation/>
+            <wsdl:input message="tns:gettowersRequest"/>
+            <wsdl:output message="tns:gettowersResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TablesBinding" type="tns:TablesPortType">
+        <soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc"
+                          transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getusers">
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=getusers" style="rpc"/>
+            <wsdl:input>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getlocations">
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=getlocations"
+                                style="rpc"/>
+            <wsdl:input>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getcounties">
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=getcounties" style="rpc"/>
+            <wsdl:input>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="gettowers">
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                                soapAction="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php?method=gettowers" style="rpc"/>
+            <wsdl:input>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Tables">
+        <wsdl:documentation/>
+        <wsdl:port name="TablesPort" binding="tns:TablesBinding">
+            <soap-env:address location="http://szeleromuvek.awebprogjo.nhely.hu/server/server.php"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

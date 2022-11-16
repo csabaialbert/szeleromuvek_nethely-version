@@ -1,0 +1,24 @@
+table {
+    width: 80%;
+}
+
+th {
+    height: 20px;
+    text-align: center;
+    background-color: rgb(175, 174, 174);
+    width: 20%;
+    min-width: 50px;
+}
+
+td {
+    height: 20px;
+    text-align: center;
+    background-color: rgb(154, 177, 153);
+    width: 20%;
+    min-width: 50px;
+}
+
+#center {
+    margin: auto;
+    width: fit-content;
+}
